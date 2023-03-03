@@ -11,9 +11,20 @@ export class UserService {
   ) {}
 
   async getAllUsers() {
-    return await this.user_repository.find({
-      select: ['id', 'login'],
-    });
+    const users = await this.user_repository.find()
+
+    const userList = users.map((user) => {
+      return {
+        id: user.id,
+        name: user.login,
+        file: {
+          name: JSON.parse(user.file).originalname,
+          path: `/files/${JSON.parse(user.file).filename}`,
+        }
+      }
+    })
+
+    return userList
   }
 
   async getUser(id: number) {

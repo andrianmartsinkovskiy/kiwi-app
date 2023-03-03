@@ -9,6 +9,7 @@ import { Response } from 'express';
 import { UserRole } from 'src/types/user-roles.type';
 import { Roles } from 'src/auth/decorators/roles.decorator';
 import { RolesGuard } from 'src/auth/guards/role.guards';
+import {JSONFile} from "@nestjs/schematics/dist/utils/json-file.util";
 
 @Controller('user')
 export class UserController {
@@ -21,7 +22,7 @@ export class UserController {
     const users = await this.user_service.getAllUsers();
 
     res.json({
-      users,
+      users: users
     });
   }
 
