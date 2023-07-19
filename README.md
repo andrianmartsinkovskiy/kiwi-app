@@ -9,12 +9,12 @@ Test application (Template Backend+Frontend+CMS) with the possibility of user re
 NestJS, Pasport-IO, JWT, TypeORM, Cookie-Parser
 
 ### Start app
--> npm start
+`npm start`
 
 ### Start dev
--> nest start --watch
+`nest start --watch`
 
 ### Create Build
--> nest build
+`nest build`
 
 
